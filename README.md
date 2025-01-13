@@ -16,7 +16,7 @@ This plugin adds a salary system to the server, where players earn in-game curre
 - Customizable messages.
 
 ## Usage
-- **Permissions** : `plugin.permission` - Description.
+- **Permissions** : `plugin.permission`
 - **Configuration** : Edit the `config.yml` file located in the `plugins/MineliaSalary` folder.
 
 ## Compatibility
