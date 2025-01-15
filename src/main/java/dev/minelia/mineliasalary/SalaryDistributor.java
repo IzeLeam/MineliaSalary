@@ -46,7 +46,11 @@ public class SalaryDistributor implements Runnable {
       return RankSalary.DEFAULT;
     }
 
-    return RankSalary.valueOf(user.getPrimaryGroup().toUpperCase());
+    try {
+      return RankSalary.valueOf(user.getPrimaryGroup().toUpperCase());
+    } catch (IllegalArgumentException e) {
+      return RankSalary.DEFAULT;
+    }
   }
 
   @Override
@@ -72,20 +76,13 @@ public class SalaryDistributor implements Runnable {
         return;
       }
 
-      LuckPerms luckPerms = LuckPermsProvider.get();
-      User user = luckPerms.getUserManager().getUser(uuid);
-      if (user == null) {
-        continue;
-      }
-      String rank = user.getPrimaryGroup();
-
       Player player = Bukkit.getPlayer(uuid);
 
       if (!config.getString("messages.salary_distribution_broadcast").isEmpty()) {
         player.sendMessage("§8Les salaires ont été distribués.");
       }
 
-      RankSalary rankSalary = RankSalary.valueOf(rank.toUpperCase());
+      RankSalary rankSalary = this.getSalary(uuid);
       if (players.get(uuid) >= rankSalary.getMaxSalary()) {
         if (plugin.getConfig().getBoolean("limit_reach_message")) {
           player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("messages.limit_reach")
