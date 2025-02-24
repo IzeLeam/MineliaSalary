@@ -1,0 +1,40 @@
+salaires:
+  default:
+    salaire: 5000
+    max: 50000
+  elu:
+    salaire: 10000
+    max: 100000
+  champion:
+    salaire: 15000
+    max: 200000
+  master:
+    salaire: 20000
+    max: 400000
+  hero:
+    salaire: 20000
+    max: 800000
+  legend:
+    salaire: 40000
+    max: 1000000
+  supreme:
+    salaire: 50000
+    max: 2000000
+  god:
+    salaire: 70000
+    max: 3000000
+
+limit_reach_message: true
+last_reset: 0
+
+# Un message vide ("") désactive le message
+# Variables disponibles :
+# %salary% : Le salaire actuel
+# %max% : Le salaire maximum pour le grade actuel
+# %rank% : Le grade actuel
+messages:
+  limit_reach: "&cVous avez atteint le salaire maximum (%max%)"
+  salary_reset: "&8Les salaires ont été réinitialisés"
+  salary_info: "&8Votre salaire actuel est de %salary% en tant que %rank%"
+  salary_distribution: "&aVous avez reçu votre salaire de %salary%"
+  salary_distribution_broadcast: "&8Les salaires ont été distribués"

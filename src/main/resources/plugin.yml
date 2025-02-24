@@ -1,0 +1,8 @@
+name: MineliaSalary
+version: '${project.version}'
+main: dev.minelia.mineliasalary.MineliaSalary
+
+commands:
+  salary:
+    description: Give information about your salary
+    usage: /salary
